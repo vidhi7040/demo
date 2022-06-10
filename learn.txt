@@ -1,0 +1,40 @@
+@Test(dataprovider="create", dataProviderClass="Dataprovider.class")
+public void login(String name, String password)
+{
+	driver.find.by.sendKeys(name);
+	driver.find.by.sendkeys(password);
+}
+@DataProvider(name="create")
+public Object[][] dataset()
+{
+	return new Object[][]{
+			{"User1","pass1"},
+			{"user2","pass2"}
+	};
+}
+
+
+WebDriverWait wait=new WebDriverWait(driver, 10);
+wait.until(ExceptedConditions.VisiliblityOfAllElements(By.xpath("===")));
+
+driver.manage().timeouts().implictilywait(10,TimeUnit.SECONDS);
+
+Wait wait= new FluentWait(driver).withTimeout(30, TimeUnit.SECONDS).pollingEvery(5, TimeUnit.SECONDS).ignoring(NoSuchElementException.class);
+
+capture ss
+
+File fil=((TakesScreenShot)driver).getScreenshotAs(OutputType.FILE);
+FileUtils.copyfile(fil,new File("path where to store"+filename+".jpg"));
+
+config.properties
+UserName=Vidhi
+Surname=patel
+
+.java
+
+Properties prop=new Properties();
+FileInputStream fil=new FileInputStream("path of config file");
+prop.load(fil);
+prop.getproperty("Surname");
+
+
